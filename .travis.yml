@@ -20,3 +20,16 @@ after_success:
   - docker push ecarlste/react-fibonacci-kubernetes-nginx
   - docker push ecarlste/react-fibonacci-kubernetes-api
   - docker push ecarlste/react-fibonacci-kubernetes-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: react-fibonacci-kubernetes
+  env: ReactFibonacciKubernetes-env
+  bucket_name: elasticbeanstalk-us-east-1-607366447514
+  bucket_path: react-fibonacci-kubernetes
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
