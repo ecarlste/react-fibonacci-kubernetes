@@ -5,13 +5,15 @@
       "name": "api",
       "image": "ecarlste/react-fibonacci-kubernetes-api",
       "hostname": "api",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "client",
       "image": "ecarlste/react-fibonacci-kubernetes-client",
       "hostname": "client",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "nginx",
@@ -23,12 +25,14 @@
           "containerPort": 80
         }
       ],
-      "links": ["client", "api"]
+      "links": ["client", "api"],
+      "memory": 128
     },
     {
       "name": "worker",
       "image": "ecarlste/react-fibonacci-kubernetes-worker",
-      "essential": false
+      "essential": false,
+      "memory": 128
     }
   ]
 }
