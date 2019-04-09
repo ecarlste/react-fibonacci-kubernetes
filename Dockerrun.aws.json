@@ -1,0 +1,34 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "api",
+      "image": "ecarlste/react-fibonacci-kubernetes-api",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "client",
+      "image": "ecarlste/react-fibonacci-kubernetes-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "ecarlste/react-fibonacci-kubernetes-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "api"]
+    },
+    {
+      "name": "worker",
+      "image": "ecarlste/react-fibonacci-kubernetes-worker",
+      "essential": false
+    }
+  ]
+}
