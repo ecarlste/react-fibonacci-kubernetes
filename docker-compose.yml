@@ -4,3 +4,10 @@ services:
     image: 'postgres:alpine'
   redis:
     image: 'redis:alpine'
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./server:/app
