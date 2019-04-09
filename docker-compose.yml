@@ -4,13 +4,13 @@ services:
     image: 'postgres:alpine'
   redis:
     image: 'redis:alpine'
-  server:
+  api:
     build:
-      context: ./server
+      context: ./api
       dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
-      - ./server:/app
+      - ./api:/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
