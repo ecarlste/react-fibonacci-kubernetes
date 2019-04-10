@@ -18,6 +18,7 @@
     {
       "name": "nginx",
       "image": "ecarlste/react-fibonacci-kubernetes-nginx",
+      "hostname": "nginx",
       "essential": true,
       "portMappings": [
         {
@@ -31,6 +32,7 @@
     {
       "name": "worker",
       "image": "ecarlste/react-fibonacci-kubernetes-worker",
+      "hostname": "worker",
       "essential": false,
       "memory": 128
     }
