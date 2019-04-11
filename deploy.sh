@@ -1,19 +1,19 @@
 docker build \
        -t ecarlste/react-fibonacci-kubernetes-client:latest \
        -t ecarlste/react-fibonacci-kubernetes-client:$GIT_SHA \
-       ./client/Dockerfile \
+       -f ./client/Dockerfile \
        ./client
 
 docker build \
        -t ecarlste/react-fibonacci-kubernetes-api:latest \
        -t ecarlste/react-fibonacci-kubernetes-api:$GIT_SHA \
-       ./api/Dockerfile \
+       -f ./api/Dockerfile \
        ./api
 
 docker build \
        -t ecarlste/react-fibonacci-kubernetes-worker:latest \
        -t ecarlste/react-fibonacci-kubernetes-worker:$GIT_SHA \
-       ./worker/Dockerfile \
+       -f ./worker/Dockerfile \
        ./worker
 
 docker push ecarlste/react-fibonacci-kubernetes-client
