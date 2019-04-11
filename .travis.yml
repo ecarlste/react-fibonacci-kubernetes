@@ -17,7 +17,6 @@ before_install:
   - gcloud container clusters get-credentials react-fibonacci-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t ecarlste/react-tests -f ./client/Dockerfile.dev ./client
-  - echo "$GIT_SHA"
 
 script:
   - docker run ecarlste/react-tests npm run test -- --coverage
