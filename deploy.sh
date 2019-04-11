@@ -1,3 +1,5 @@
+echo "$GIT_SHA"
+
 docker build \
        -t ecarlste/react-fibonacci-kubernetes-client:latest \
        -t ecarlste/react-fibonacci-kubernetes-client:$GIT_SHA \
